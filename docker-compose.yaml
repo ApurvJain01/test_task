@@ -1,0 +1,14 @@
+version: "3.8"
+x-logging:
+    &default-logging
+    options:
+      max-size: "100m"
+      max-file: "5"
+    driver: json-file
+services:
+  countapp:
+    build: .
+    image: test-task
+    logging: *default-logging
+    container_name: countapp-test-task
+    env_file: .env
